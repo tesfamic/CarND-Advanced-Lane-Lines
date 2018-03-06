@@ -16,10 +16,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image0]: ./output_images/distorted_calibration1.jpg "Distorted"
-[image1]: ./output_images/corrected_calibration1.jpg "Undistorted"
-[image2]: ./output_images/distorted_test6.jpg "Original"
-[image3]: ./output_images/corrected_test6.jpg "Undistorted"
+[image0]: ./output_images/distorted_calibration1.png "Distorted"
+[image1]: ./output_images/corrected_calibration1.png "Undistorted"
+[image2]: ./output_images/distorted_test6.png "Original"
+[image3]: ./output_images/corrected_test6.png "Undistorted"
 [image4]: ./output_images/sobel_threshold.png "Soble x-gardient thresholded"
 [image5]: ./output_images/hls_threshold.png "HLS - s-channel thresholded"
 [image6]: ./output_images/original_image.png "Unwarped image"
@@ -50,7 +50,8 @@ You're reading it!
 I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imgpoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection.  
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the built in opencv function `cv2.calibrateCamera()`.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
-![alt text][image0]  | ![alt text][image1]
+ ![alt text][image0] 
+ ![alt text][image1] 
 
 ### Pipeline (single images)
 
@@ -59,13 +60,15 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 >To demonstrate this step, I will describe how I apply the distortion correction to one of the test images shown below.
 As can be seen in the images below, the effect of undistortion is visible on the nearest tree on the left side. It appears closer in the corrected/undistorted image than the original.
 
-![alt text][image2] | ![alt text][image3]
+![alt text][image2]
+![alt text][image3]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
 > I used a combination of color and gradient thresholds to generate a binary image. For the gradient thresholding, Sobel operation in x-gradient is used and for the color thresholding the s-channel of HLS color space is implemented. This thresholding operations are implemented in code cell 2 (collection of functions) in jupyter notebook (lane_detector.ipynb). Here's an example of my output for this step using one of the test images provided.
 
-![alt text][image4] | ![alt text][image5]
+![alt text][image4] 
+![alt text][image5]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -83,7 +86,8 @@ The source and destination coordinates(points) are the following:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image6] | ![alt text][image7]
+![alt text][image6] 
+![alt text][image7]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
